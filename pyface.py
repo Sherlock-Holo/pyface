@@ -194,3 +194,28 @@ class face(object):
             if from_index != to_index:
                 self.merge_regions[from_index].extend(self.merge_regions[to_index])
                 del(self.merge_regions[to_index])
+
+            return None
+
+        if from_index == -1 and to_index == -1:
+            self.merge_regions.append([_from, _to])
+            return None
+
+        if from_index != -1 and to_index == -1:
+            self.merge_regions[from_index].append(_to)
+            return None
+
+        if from_index == -1 and to_index != -1:
+            self.merge_regions[to_index].append(_from)
+            return None
+
+    def _merge(self, detected_regions, merge_regions):
+        new_detected_regions = []
+        for index, region in enumerate(merge_regions):
+            try:
+                new_detected_regions[index]
+            except IndexError:
+                new_detected_regions.append([])
+
+            for r_index in region:
+                
