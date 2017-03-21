@@ -1,3 +1,5 @@
+#1/usr/env python3
+
 import cv2
 import sys
 
