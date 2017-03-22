@@ -7,7 +7,7 @@ face_patterns = cv2.CascadeClassifier("/usr/share/opencv/haarcascades/haarcascad
 sample_img = sys.argv[1]
 #detect_img = sys.argv[2]
 sample = cv2.imread(sample_img)
-faces = face_patterns.detectMultiScale(sample, scaleFactor = 1.2, minNeighbors = 2, minSize = (100, 100))
+faces = face_patterns.detectMultiScale(sample, scaleFactor = 1.2, minNeighbors = 5, minSize = (100, 100))
 
 for x, y, w, h in faces:
     cv2.rectangle(sample, (x, y), (x + w, y + h), (0, 255), 2)
