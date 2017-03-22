@@ -13,5 +13,8 @@ for x, y, w, h in faces:
     cv2.rectangle(sample, (x, y), (x + w, y + h), (0, 255), 2)
 
 #cv2.imwrite(detect_img, sample)
-cv2.imshow('Face', sample)
+
+new_img = cv2.resize(sample, None, fx = 0.5, fy = 0.5, interpolation = cv2.INTER_CUBIC)
+
+cv2.imshow('Face', new_img)
 cv2.waitKey(0)
