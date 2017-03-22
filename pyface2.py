@@ -14,7 +14,8 @@ for x, y, w, h in faces:
 
 #cv2.imwrite(detect_img, sample)
 
-new_img = cv2.resize(sample, None, fx = 0.5, fy = 0.5, interpolation = cv2.INTER_CUBIC)
+while sample.shape[0] >= 1920 or sample.shape[1] >= 1080:
+    sample = cv2.resize(sample, None, fx = 0.5, fy = 0.5, interpolation = cv2.INTER_CUBIC)
 
-cv2.imshow('Face', new_img)
+cv2.imshow('Face', sample)
 cv2.waitKey(0)
